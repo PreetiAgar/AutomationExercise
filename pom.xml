@@ -48,4 +48,9 @@
 <version>4.18.1</version>
 </dependency>
   </dependencies>
+  <profiles>
+		<profile>
+			<id>basicTestcase</id>
+		</profile>
+	</profiles>
 </project>
