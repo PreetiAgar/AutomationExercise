@@ -21,6 +21,9 @@ public class LandingPage extends AbstractComponents  {
 	@FindBy(xpath="//a[@style='color: orange;']")
 	WebElement home;
 	
+	@FindBy(xpath="//a[@href='/login']")
+	WebElement login;
+	
 	@FindBy(xpath="//a[@id='scrollUp']")
 	WebElement arrowBtn;
 	
@@ -70,6 +73,11 @@ public class LandingPage extends AbstractComponents  {
 		waitForElementToAppear(pageText);
 		String text2=pageText.getText().trim();
 		return text2;
+	}
+	
+	public LoginPage clickLogin() {
+		login.click();
+		return new LoginPage(driver);
 	}
 }
 	

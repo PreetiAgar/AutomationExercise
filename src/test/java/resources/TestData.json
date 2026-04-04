@@ -1,0 +1,21 @@
+[
+  {
+    "Firstname": "Preeti",
+    "Lastname": "Agarwal",
+    "Address": "E401 Maher select",
+    "State":"Gujarat",
+    "City":"Ahmedabad",
+    "Zipcode":"380058",
+    "Mobilenumber":"8889089965"
+  },
+  {
+    "Firstname": "Pravin",
+    "Lastname": "Choudhary",
+    "Address": "B202 Stavan arise",
+    "State":"Gujarat",
+    "City":"Ahmedabad",
+    "Zipcode":"380051",
+    "Mobilenumber":"8789296454"
+  }
+
+]

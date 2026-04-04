@@ -13,7 +13,7 @@ import org.testng.asserts.SoftAssert;
 6. Click on arrow at bottom right side to move upward
 7. Verify that page is scrolled up and 'Full-Fledged practice website for Automation Engineers' text is visible on screen*/
 
-public class TestUserCreation extends BaseTest {
+public class TestCaseTwo extends BaseTest {
 	 WebDriver driver;
 	
 		
@@ -22,15 +22,15 @@ public class TestUserCreation extends BaseTest {
 	String text=landingPage.verifyHomePage();
 	
 	SoftAssert a = new SoftAssert();
-	Assert.assertEquals(text, "Home");
+	a.assertEquals(text, "Home");
 	landingPage.scrollToBottom();
 	String text1=landingPage.verifySubscriptionIsVisible();
 	System.out.println(text1);
-	Assert.assertTrue(text1.equalsIgnoreCase("Subscription"));
+	a.assertTrue(text1.equalsIgnoreCase("Subscription"));
 	landingPage.scrollUp();
 	String text2=landingPage.verifyTextDisplayed();
 	System.out.println(text2);
-	Assert.assertTrue(text2.equalsIgnoreCase("Full-Fledged practice website for Automation Engineers"));
+	a.assertTrue(text2.equalsIgnoreCase("Full-Fledged practice website for Automation Engineers"));
 	a.assertAll();
 	}
 	

@@ -28,7 +28,6 @@
 			<version>4.18.1</version>
 		</dependency>
 		
-    
     <dependency>
 			<groupId>io.github.bonigarcia</groupId>
 			<artifactId>webdrivermanager</artifactId>
@@ -42,15 +41,56 @@
 			<scope>test</scope>
 		</dependency>
 
-  <dependency>
-<groupId>org.seleniumhq.selenium</groupId>
-<artifactId>selenium-devtools-v120</artifactId>
-<version>4.18.1</version>
-</dependency>
-  </dependencies>
+  	<dependency>
+		<groupId>org.seleniumhq.selenium</groupId>
+		<artifactId>selenium-devtools-v145</artifactId>
+		<version>4.41.0</version>
+	</dependency>
+ </dependencies>
+ 
   <profiles>
 		<profile>
-			<id>basicTestcase</id>
-		</profile>
+			<id>AutoTestNG</id>
+		
+	<build>
+		<pluginManagement>
+			<plugins>
+				<plugin>
+					<groupId>org.apache.maven.plugins</groupId>
+					<artifactId>maven-surefire-plugin</artifactId>
+					<version>3.2.5</version>
+					<configuration>
+						<suiteXmlFiles>
+							<suiteXmlFile>testSuites/AutoTestNG.xml</suiteXmlFile>
+						</suiteXmlFiles>
+					</configuration>
+				</plugin>
+			</plugins>
+		</pluginManagement>
+	</build>
+	</profile>
+	
+	<profile>
+			<id>AutoTestNG2</id>
+		
+	<build>
+		<pluginManagement>
+			<plugins>
+				<plugin>
+					<groupId>org.apache.maven.plugins</groupId>
+					<artifactId>maven-surefire-plugin</artifactId>
+					<version>3.2.5</version>
+					<configuration>
+						<suiteXmlFiles>
+							<suiteXmlFile>testSuites/AutoTestNG2.xml</suiteXmlFile>
+						</suiteXmlFiles>
+					</configuration>
+				</plugin>
+			</plugins>
+		</pluginManagement>
+	</build>
+	</profile>
 	</profiles>
+	
+	
 </project>
