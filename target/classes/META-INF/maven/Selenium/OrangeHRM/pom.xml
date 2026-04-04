@@ -60,6 +60,7 @@
 					<artifactId>maven-surefire-plugin</artifactId>
 					<version>3.2.5</version>
 					<configuration>
+						 <failIfNoTests>true</failIfNoTests>
 						<suiteXmlFiles>
 							<suiteXmlFile>testSuites/AutoTestNG.xml</suiteXmlFile>
 						</suiteXmlFiles>
@@ -82,6 +83,7 @@
 					<version>3.2.5</version>
 					<configuration>
 						<suiteXmlFiles>
+							 <failIfNoTests>true</failIfNoTests>
 							<suiteXmlFile>testSuites/AutoTestNG2.xml</suiteXmlFile>
 						</suiteXmlFiles>
 					</configuration>
