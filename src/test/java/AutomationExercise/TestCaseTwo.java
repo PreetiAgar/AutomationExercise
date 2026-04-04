@@ -17,7 +17,7 @@ public class TestCaseTwo extends BaseTest {
 	 WebDriver driver;
 	
 		
-	@Test(groups="basicTestCase")
+	@Test
 	public void scrollUpUsingArrow() {
 	String text=landingPage.verifyHomePage();
 	

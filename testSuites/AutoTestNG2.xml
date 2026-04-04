@@ -3,9 +3,9 @@
 <suite name="TestCaseTwo">
   <test thread-count="5" name="TestCaseTwo.xml">
     <classes>
-      <class name="AutomationExercise.RegisterUser">
+      <class name="AutomationExercise.TestCaseTwo">
         <methods>
-          <include name="TestCase2"/>
+          <include name="TestCaseTwo"/>
           <include name="tearDown"/>
           <include name="launchApplication"/>
         </methods>
