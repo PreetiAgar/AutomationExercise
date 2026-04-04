@@ -5,7 +5,7 @@
     <classes>
       <class name="AutomationExercise.TestCaseTwo">
         <methods>
-          <include name="TestCaseTwo"/>
+          <include name="scrollUpUsingArrow"/>
           <include name="tearDown"/>
           <include name="launchApplication"/>
         </methods>
