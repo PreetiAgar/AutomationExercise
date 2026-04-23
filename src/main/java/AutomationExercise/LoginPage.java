@@ -30,6 +30,9 @@ public class LoginPage extends AbstractComponents{
 	@FindBy(css="input[placeholder='Name']")
 	WebElement Name;
 
+	@FindBy(css="input[data-qa='name']")
+	WebElement userName;
+	
 	@FindBy(css="input[placeholder='Email Address']:nth-child(3)")
 	WebElement emailAddress;
 	
@@ -87,12 +90,20 @@ public class LoginPage extends AbstractComponents{
 		return signUpText;
 	}
 	
-	public void enterSignUpDetails(String name,String email) {
+	public void enterSignUpDetails() {
 		waitForElementToBeClickable(Name);
-		Name.sendKeys(name);
-		emailAddress.sendKeys(email);
+		String userName=generateRandomAlphaNumericString();
+		Name.sendKeys(userName);
+		emailAddress.sendKeys(generateRandomAlphaNumericEmail());
 		waitForElementToBeClickable(signUpBtn);
 		signUpBtn.click(); 
+	}
+	
+	public String getUserName() {
+		//String userName=
+		return userName.getDomAttribute("value");
+		//return userName;
+		
 	}
 	
 	public String verifyEnterAccountInfoDisplayed() {
@@ -119,14 +130,59 @@ public class LoginPage extends AbstractComponents{
 		newsLetterCheckbox.click();
 		optinCheckbox.click();	
 	}
-
+	@FindBy(xpath="//button[@data-qa='create-account']")
+	WebElement createAccountBtn;
+	
 	public void enterAccountInfo(AccountInfo accountInfo) {
 		firstName.sendKeys(accountInfo.getFirstname());
 		lastName.sendKeys(accountInfo.getLastname());
 		address.sendKeys(accountInfo.getAddress());
+		state.sendKeys(accountInfo.getState());
 		city.sendKeys(accountInfo.getCity());
 		zipcode.sendKeys(accountInfo.getZipCode());
 		mobileNumber.sendKeys(accountInfo.getMobileNumber());
+		createAccountBtn.click();
 	}
+	
+	@FindBy(xpath="//div/h2[@data-qa='account-created']")
+	WebElement accountCreated;
+	
+	public boolean verifyAccountCreatedIsDisplayed() {
+		waitForElementToAppear(accountCreated);
+		return accountCreated.isDisplayed();
+	}
+	
+	@FindBy(xpath="//a[@data-qa='continue-button']")
+	WebElement continueBtn;
+
+	public LandingPage clickContinue() {
+		continueBtn.click();
+		return new LandingPage(driver);
+		
+	}
+	@FindBy(xpath="//div[@class='login-form']/h2")
+	WebElement loginAccount;
+	
+	public String verifyLoginToAccountIsDisplayed() {
+		waitForElementToAppear(loginAccount);
+		return loginAccount.getText();
+	}
+	@FindBy(xpath="//input[@data-qa='login-email']")
+	WebElement loginEmail;
+	
+	@FindBy(xpath="//input[@data-qa='login-password']")
+	WebElement loginPassword;
+	
+	@FindBy(xpath="//button[@data-qa='login-button']")
+	WebElement loginBtn;
+	
+	public LandingPage loginIntoAccount(String email,String password) {
+		loginEmail.sendKeys(email);
+		loginPassword.sendKeys(password);
+		loginBtn.click();
+		return new LandingPage(driver);
+	}
+	
+	
 	
 }

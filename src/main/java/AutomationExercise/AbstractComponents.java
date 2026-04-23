@@ -44,6 +44,7 @@ public class AbstractComponents {
 	    List<WebElement> options = select.getOptions();
 	    return options;
 	    }
+	    
 	    public void selectRandomOption(List<WebElement> elements) {
 	    WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(30));
 	    wait.until(ExpectedConditions.visibilityOfAllElements(elements));
@@ -58,8 +59,14 @@ public class AbstractComponents {
 	
 	public String generateRandomAlphaNumericString()
 	{	
-	String Password = RandomStringUtils.randomAlphanumeric(8);
+	String Password = RandomStringUtils.randomAlphabetic(8);
 	return Password;
+	}
+	
+	public String generateRandomAlphaNumericEmail()
+	{	
+	String email = "test" + System.currentTimeMillis() + "@gmail.com";
+	return email;
 	}
 	
 	

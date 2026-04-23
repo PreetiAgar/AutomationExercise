@@ -16,6 +16,8 @@ import java.util.Optional;
 import java.util.Properties;
 
 import org.apache.commons.io.FileUtils;
+import org.openqa.selenium.OutputType;
+import org.openqa.selenium.TakesScreenshot;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.chrome.ChromeOptions;
@@ -33,10 +35,15 @@ import io.github.bonigarcia.wdm.WebDriverManager;
 
 public class BaseTest {
 	
-	public WebDriver driver;
+	public static ThreadLocal<WebDriver> driver=new ThreadLocal<>();
 	public LandingPage landingPage;
 	
-	public WebDriver initializeBrowser() throws IOException  {
+	public static WebDriver getDriver()
+	{
+	    return driver.get();
+	}
+	
+	public ThreadLocal<WebDriver> initializeBrowser() throws IOException  {
 		Properties prop = new Properties();
 		FileInputStream fis= new FileInputStream(System.getProperty("user.dir")+"//src//test//java//resources//GlobalProperties.properties");
 		prop.load(fis);
@@ -55,9 +62,9 @@ public class BaseTest {
 			options.addExtensions(new File("src/test/java/resources/ublock.crx"));
 
 			options.addArguments("--start-maximized");
-			driver = new ChromeDriver(options);
-
-	        DevTools devTools = ((ChromeDriver) driver).getDevTools();
+			driver.set(new ChromeDriver(options));
+			//driver=new ChromeDriver(options);
+	        /*DevTools devTools = ((ChromeDriver) driver).getDevTools();
 	        devTools.createSession();
 	        devTools.send(Network.enable(Optional.empty(), Optional.empty(), Optional.empty(),Optional.empty(),Optional.empty()));
 
@@ -65,25 +72,28 @@ public class BaseTest {
 				    "*doubleclick.net*",
 				    "*googlesyndication.com*",
 				    "*ads.*"))
-				));
+				));*/
 					
 		}else if(browserName.equalsIgnoreCase("firefox"))
 		{
 			WebDriverManager.firefoxdriver().setup();
-			 driver=new FirefoxDriver();
+			driver.set(new FirefoxDriver());
 		}
 		else if(browserName.equalsIgnoreCase("edge"))
 		{
 			//WebDriverManager.edgedriver().setup();
 			System.setProperty("webdriver.edge.driver", "C://drivers//msedgedriver.exe");
-			driver=new EdgeDriver();
+			driver.set(new EdgeDriver());
 	
 		}
-		driver.manage().window().maximize();
-		driver.manage().timeouts().pageLoadTimeout(Duration.ofSeconds(30));
+		getDriver().manage().window().maximize();
+		getDriver().manage().timeouts().pageLoadTimeout(Duration.ofSeconds(30));
 		return driver;
 	}
-	@BeforeMethod
+	
+	
+	
+	@BeforeMethod(alwaysRun=true)
 	public LandingPage launchApplication() throws IOException {
 		try {
 			driver=initializeBrowser();
@@ -91,15 +101,18 @@ public class BaseTest {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
-		landingPage	= new LandingPage(driver);
+		landingPage	= new LandingPage(getDriver());
 		landingPage.goTo();
 		return landingPage ;
 	}
 	
-	@AfterMethod
+	@AfterMethod(alwaysRun=true)
 	public void tearDown(){
-		driver.manage().deleteAllCookies();
-		driver.quit();
+		if (getDriver() != null) {
+		getDriver().manage().deleteAllCookies();
+		getDriver().quit();
+		driver.remove();   //memory cleanup
+		}
 	}
 	
 		public List<AccountInfo> getJsondata(String filePath) throws JsonParseException, JsonMappingException, IOException {
@@ -111,4 +124,10 @@ public class BaseTest {
 		 return accountsInfo;
 		}
 	
+		public String getScreenshot(String testName) throws IOException {
+			 File src=((TakesScreenshot)getDriver()).getScreenshotAs(OutputType.FILE);
+			 File file=new File(System.getProperty("user.dir") + "/reports/" +testName+".png");
+			 FileUtils.copyFile(src,file);
+			 return System.getProperty("user.dir") + "/reports/" +testName+".png";
+		}
 }

@@ -1,4 +1,4 @@
-package AutomationExercise;
+package AutomationExercise.Tests;
 
 import org.openqa.selenium.WebDriver;
 import org.testng.Assert;
@@ -12,6 +12,8 @@ import org.testng.asserts.SoftAssert;
 5. Verify 'SUBSCRIPTION' is visible
 6. Click on arrow at bottom right side to move upward
 7. Verify that page is scrolled up and 'Full-Fledged practice website for Automation Engineers' text is visible on screen*/
+
+import AutomationExercise.BaseTest;
 
 public class TestCaseTwo extends BaseTest {
 	 WebDriver driver;

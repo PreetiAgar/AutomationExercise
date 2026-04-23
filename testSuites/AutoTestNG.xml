@@ -1,15 +1,34 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE suite SYSTEM "https://testng.org/testng-1.0.dtd">
-<suite name="AutoTestNG">
+<suite parallel="tests" name="AutoTestNG">
+	<listeners>
+		<listener class-name="Utility.Listeners"/>
+		</listeners>
   <test thread-count="5" name="AutoTestNG.xml">
     <classes>
-      <class name="AutomationExercise.RegisterUser">
-        <methods>
+      <class name="AutomationExercise.Tests.RegisterUser"/>
+        <!--<methods>
           <include name="TestRegisterUser"/>
+          <include name="testDeleteAccount"/>
+           <include name="testLogout"/>
           <include name="tearDown"/>
           <include name="launchApplication"/>
-        </methods>
-      </class> 
+        </methods>-->
     </classes>
+  </test>
+  <test thread-count="5" name="AutoTestNG1.xml">
+    <classes>
+  		<class name="AutomationExercise.Tests.TestCaseTwo"/>
+    </classes>
+  </test>
+  <test thread-count="5" name="AutoTestNG2.xml">
+    <classes>
+		<class name="AutomationExercise.Tests.TestDeleteAccount"/>
+	</classes>
+  </test>
+  <test thread-count="5" name="AutoTestNG3.xml">
+    <classes>
+			<class name="AutomationExercise.Tests.TestLogout"/>
+	</classes>
   </test>
 </suite> 

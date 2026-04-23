@@ -34,6 +34,15 @@ public class LandingPage extends AbstractComponents  {
 	@FindBy(xpath="//div[@class='col-sm-6']//h2")
 	WebElement pageText;
 	
+	@FindBy(xpath="//a/b")
+	WebElement loggedInUser;
+	
+	@FindBy(xpath="//a[@href='/delete_account']")
+	WebElement deleteAccountBtn;
+	
+	@FindBy(xpath="//h2[@data-qa='account-deleted']")
+	WebElement accountDeletedText;
+	
 	
 	/*public AdminPage login(String username,String password)
 	{
@@ -79,6 +88,40 @@ public class LandingPage extends AbstractComponents  {
 		login.click();
 		return new LoginPage(driver);
 	}
+	
+	public String getLoggedInUserName() {
+		return loggedInUser.getText();
+	
+	}
+	
+	public void clickDeleteAccount() {
+		waitForElementToAppear(deleteAccountBtn);
+		deleteAccountBtn.click();
+	}
+	
+	public String verifyAccountDeletedDisplayed() {
+		waitForElementToAppear(accountDeletedText);
+		String text2=accountDeletedText.getText().trim();
+		return text2;
+	}
+	@FindBy(xpath="//a[@href='/logout']")
+	WebElement logoutBtn;
+	
+	public void clickLogout() {
+		waitForElementToAppear(logoutBtn);
+		logoutBtn.click();
+		
+	}
+	
+	/*@FindBy(xpath="//a[@data-qa='continue-button']")
+	WebElement continueBtn;
+
+	public void clickContinue() {
+		continueBtn.click();
+	
+		
+	}*/
+	
 }
 	
 	

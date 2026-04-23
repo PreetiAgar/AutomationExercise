@@ -1,4 +1,4 @@
-package AutomationExercise;
+package AutomationExercise.Tests;
 
 import java.io.File;
 import java.io.IOException;
@@ -18,6 +18,10 @@ import com.fasterxml.jackson.core.JsonParseException;
 import com.fasterxml.jackson.databind.JsonMappingException;
 import com.fasterxml.jackson.databind.ObjectMapper;
 
+import AutomationExercise.AccountInfo;
+import AutomationExercise.BaseTest;
+import AutomationExercise.LandingPage;
+import AutomationExercise.LoginPage;
 import Utility.JsonReader;
 
 
@@ -51,11 +55,20 @@ public class RegisterUser extends BaseTest{
 		LoginPage loginPage =landingPage.clickLogin();
 		String newSignUpText=loginPage.verifyNewSignUpText();
 		a.assertEquals(newSignUpText,"New User Signup!");
-		loginPage.enterSignUpDetails("Preeti", "preetiagarwal1993@gmail.com");
+		//String userName= "Preeti";
+		//String email="preetiagarwal1993@gmail.com";
+		loginPage.enterSignUpDetails();
 		String enterAccInfoText=loginPage.verifyEnterAccountInfoDisplayed();
 		a.assertEquals(enterAccInfoText,"ENTER ACCOUNT INFORMATION");
 		loginPage.createAccount();
+		String userName=loginPage.getUserName();
 		loginPage.enterAccountInfo(accountInfo);
+		Boolean flag=loginPage.verifyAccountCreatedIsDisplayed();
+		a.assertTrue(flag);
+		LandingPage landingPage=loginPage.clickContinue();
+		String actualUsername=landingPage.getLoggedInUserName();
+		a.assertEquals(actualUsername, userName);
+		
 		  
 	}
 	
