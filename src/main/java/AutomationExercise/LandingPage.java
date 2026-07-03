@@ -107,20 +107,24 @@ public class LandingPage extends AbstractComponents  {
 	@FindBy(xpath="//a[@href='/logout']")
 	WebElement logoutBtn;
 	
-	public void clickLogout() {
+	public LoginPage clickLogout() {
 		waitForElementToAppear(logoutBtn);
 		logoutBtn.click();
+		return new LoginPage(driver);  
 		
 	}
 	
-	/*@FindBy(xpath="//a[@data-qa='continue-button']")
+	
+	@FindBy(xpath="//a[@data-qa='continue-button']")
 	WebElement continueBtn;
 
-	public void clickContinue() {
+	public LandingPage clickContinue() {
 		continueBtn.click();
-	
+		return new LandingPage(driver);
 		
-	}*/
+	}
+		
+	
 	
 }
 	

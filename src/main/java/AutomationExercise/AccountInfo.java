@@ -8,7 +8,9 @@ public class AccountInfo {
 	  public String State;
 	  public String City;
 	  public String Zipcode;
-	  public String Mobilenumber;	
+	  public String Mobilenumber;
+	  public String Email;        
+		public String Password;  
 	  
 	  // Getters and Setters
 	    public String getFirstname() {
@@ -47,7 +49,7 @@ public class AccountInfo {
 	    }
 	    
 	    public String getZipCode() {
-	        return City;
+	        return Zipcode;
 	    }
 	    public void setZipCode(String ZipCode) {
 	        this.Zipcode = ZipCode;
@@ -59,5 +61,18 @@ public class AccountInfo {
 	    public void setMobileNumber(String MobileNumber) {
 	        this.Mobilenumber = MobileNumber;
 	    }
+	    
+	    public String getEmail() {
+			return Email;
+		}
+		  public void setEmail(String email) {
+			  Email = email;
+		  }
+		  public String getPassword() {
+			  return Password;
+		  }
+		  public void setPassword(String password) {
+			  Password = password;
+		  }
 }
 

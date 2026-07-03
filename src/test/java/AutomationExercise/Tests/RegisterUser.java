@@ -44,7 +44,7 @@ import Utility.JsonReader;
 17. Click 'Delete Account' button
 18. Verify that 'ACCOUNT DELETED!' is visible and click 'Continue' button*/
 public class RegisterUser extends BaseTest{
-	WebDriver driver;
+	//WebDriver driver;
 
 	@Test(dataProvider="getData")
 	public void TestRegisterUser(AccountInfo accountInfo) throws JsonParseException, JsonMappingException, IOException {
@@ -55,8 +55,10 @@ public class RegisterUser extends BaseTest{
 		LoginPage loginPage =landingPage.clickLogin();
 		String newSignUpText=loginPage.verifyNewSignUpText();
 		a.assertEquals(newSignUpText,"New User Signup!");
+		
 		//String userName= "Preeti";
 		//String email="preetiagarwal1993@gmail.com";
+		
 		loginPage.enterSignUpDetails();
 		String enterAccInfoText=loginPage.verifyEnterAccountInfoDisplayed();
 		a.assertEquals(enterAccInfoText,"ENTER ACCOUNT INFORMATION");
@@ -65,11 +67,10 @@ public class RegisterUser extends BaseTest{
 		loginPage.enterAccountInfo(accountInfo);
 		Boolean flag=loginPage.verifyAccountCreatedIsDisplayed();
 		a.assertTrue(flag);
-		LandingPage landingPage=loginPage.clickContinue();
+		landingPage.clickContinue();
 		String actualUsername=landingPage.getLoggedInUserName();
 		a.assertEquals(actualUsername, userName);
-		
-		  
+		a.assertAll();		  
 	}
 	
 	 @DataProvider

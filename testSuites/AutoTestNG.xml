@@ -7,6 +7,9 @@
   <test thread-count="5" name="AutoTestNG.xml">
     <classes>
       <class name="AutomationExercise.Tests.RegisterUser"/>
+      <class name="AutomationExercise.Tests.TestCaseTwo"/>
+      <class name="AutomationExercise.Tests.TestDeleteAccount"/>
+      <class name="AutomationExercise.Tests.TestLogout"/>
         <!--<methods>
           <include name="TestRegisterUser"/>
           <include name="testDeleteAccount"/>
@@ -15,20 +18,20 @@
           <include name="launchApplication"/>
         </methods>-->
     </classes>
-  </test>
+  <!--</test>
   <test thread-count="5" name="AutoTestNG1.xml">
     <classes>
-  		<class name="AutomationExercise.Tests.TestCaseTwo"/>
-    </classes>
+  		
+  //*</classes>
   </test>
   <test thread-count="5" name="AutoTestNG2.xml">
     <classes>
-		<class name="AutomationExercise.Tests.TestDeleteAccount"/>
+		
 	</classes>
   </test>
   <test thread-count="5" name="AutoTestNG3.xml">
     <classes>
-			<class name="AutomationExercise.Tests.TestLogout"/>
-	</classes>
+			
+	</classes>*/-->
   </test>
 </suite> 

@@ -9,21 +9,10 @@
       <class name="AutomationExercise.Tests.RegisterUser">
         <methods>
           <include name="tearDown"/>
-          <include name="TestRegisterUser" invocation-numbers="0 1"/>
+          <include name="TestRegisterUser" invocation-numbers="0"/>
           <include name="launchApplication"/>
         </methods>
       </class> <!-- AutomationExercise.Tests.RegisterUser -->
     </classes>
   </test> <!-- AutoTestNG.xml(failed) -->
-  <test thread-count="5" parallel="tests" name="AutoTestNG2.xml(failed)">
-    <classes>
-      <class name="AutomationExercise.Tests.TestDeleteAccount">
-        <methods>
-          <include name="testDeleteAccount"/>
-          <include name="tearDown"/>
-          <include name="launchApplication"/>
-        </methods>
-      </class> <!-- AutomationExercise.Tests.TestDeleteAccount -->
-    </classes>
-  </test> <!-- AutoTestNG2.xml(failed) -->
 </suite> <!-- Failed suite [AutoTestNG] -->

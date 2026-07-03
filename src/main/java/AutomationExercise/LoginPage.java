@@ -152,14 +152,6 @@ public class LoginPage extends AbstractComponents{
 		return accountCreated.isDisplayed();
 	}
 	
-	@FindBy(xpath="//a[@data-qa='continue-button']")
-	WebElement continueBtn;
-
-	public LandingPage clickContinue() {
-		continueBtn.click();
-		return new LandingPage(driver);
-		
-	}
 	@FindBy(xpath="//div[@class='login-form']/h2")
 	WebElement loginAccount;
 	
