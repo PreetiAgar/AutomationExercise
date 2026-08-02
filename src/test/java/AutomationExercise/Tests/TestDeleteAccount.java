@@ -14,6 +14,7 @@ public class TestDeleteAccount extends BaseTest {
 	@Test
 	public void testDeleteAccount() {
 		// Read test data from JSON file
+		//comment for demo purpose
 		AccountInfo accountInfo = JsonReader.getAccountDataByIndex("src/test/java/resources/TestData.json", 2);
 		
 		// Verify data was loaded
