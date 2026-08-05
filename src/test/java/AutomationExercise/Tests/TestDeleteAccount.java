@@ -9,8 +9,8 @@ import AutomationExercise.LoginPage;
 import Utility.JsonReader;
 
 public class TestDeleteAccount extends BaseTest {
-
-	//WebDriver driver;
+//add demo comment to practice git conflict
+	WebDriver driver;
 	@Test
 	public void testDeleteAccount() {
 		// Read test data from JSON file
