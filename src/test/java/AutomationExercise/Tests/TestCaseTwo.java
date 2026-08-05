@@ -16,7 +16,7 @@ import org.testng.asserts.SoftAssert;
 import AutomationExercise.BaseTest;
 
 public class TestCaseTwo extends BaseTest {
-	 WebDriver driver;
+	 //WebDriver driver;
 	
 		
 	@Test

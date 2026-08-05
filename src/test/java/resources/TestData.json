@@ -6,7 +6,9 @@
     "State":"Gujarat",
     "City":"Ahmedabad",
     "Zipcode":"380058",
-    "Mobilenumber":"8889089965"
+    "Mobilenumber":"8889089965",
+	"Email": "preetiagarwal1993@gmail.com",
+	    "Password": "bubba@1106"
   },
   {
     "Firstname": "Pravin",
@@ -15,7 +17,20 @@
     "State":"Gujarat",
     "City":"Ahmedabad",
     "Zipcode":"380051",
-    "Mobilenumber":"8789296454"
-  }
+    "Mobilenumber":"8789296454",
+	"Email": "pravin.choudhary@gmail.com",
+	    "Password": "pravin@1106"
+  },
+  {
+      "Firstname": "John",
+      "Lastname": "Doe",
+      "Address": "C123 Test Building",
+      "State": "Delhi",
+      "City": "New Delhi",
+      "Zipcode": "110001",
+      "Mobilenumber": "9876543210",
+      "Email": "preetiagarwal.official@gmail.com",
+      "Password": "bubba@1106"
+    }
 
 ]

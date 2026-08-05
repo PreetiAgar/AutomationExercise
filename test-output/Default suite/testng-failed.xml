@@ -6,7 +6,7 @@
       <class name="AutomationExercise.Tests.RegisterUser">
         <methods>
           <include name="tearDown"/>
-          <include name="TestRegisterUser" invocation-numbers="0 1"/>
+          <include name="TestRegisterUser" invocation-numbers="0 2"/>
           <include name="launchApplication"/>
         </methods>
       </class> <!-- AutomationExercise.Tests.RegisterUser -->
