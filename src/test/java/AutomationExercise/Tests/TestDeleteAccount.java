@@ -8,7 +8,7 @@ import AutomationExercise.BaseTest;
 import AutomationExercise.LoginPage;
 
 public class TestDeleteAccount extends BaseTest {
-
+//add demo comment to practice git conflict
 	WebDriver driver;
 	@Test
 	public void testDeleteAccount() {
